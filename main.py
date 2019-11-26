@@ -7,7 +7,7 @@ meny = 0
 # def generatePass(length=):
 
 
-print(f'''Välkommen,
+print(f'''Välkommen,y
 Du kör operativsystemet {osys}.''')
 
 while running:
