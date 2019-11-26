@@ -1,10 +1,24 @@
-import csv, subprocess, platform
+import csv, subprocess, platform, os
 
 osys = platform.system()
 running = True
 meny = 0
 
 # def generatePass(length=):
+
+def getFileLocation():
+    print('Skriv sökvägen till CSV filen.')
+    csvlocation = input("csv: ")
+    if os.path.isfile(csvlocation) == False:
+        print("Filen existerar inte, vänligen testa igen.")
+    elif os.path.isfile(csvlocation) == True:
+        print("Filen existerar.")
+        correctcsvlocation = csvlocation
+    else:
+        print("gg")
+    return correctcsvlocation
+
+
 
 
 print(f'''Välkommen,
@@ -22,4 +36,3 @@ while running:
             print("Välj ett av de tillgänliga alternativen.")
             meny = 0
     if meny == 1:
-        print("Vänligen skriv sökvägen till en csv")
