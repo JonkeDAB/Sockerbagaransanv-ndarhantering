@@ -1,25 +1,53 @@
-import csv, subprocess, platform, os
+import csv, subprocess, platform, os, random, string
 
 osys = platform.system()
 running = True
 meny = 0
+chars = "abcdefghijklmnopqrstuvwxyz"
+chars1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+chars2 = "0123456789"
+chars3 = "!#/()=#"
+
 
 # def generatePass(length=):
 
 def getFileLocation():
-    print('Skriv sökvägen till CSV filen.')
-    csvLocation = input("csv: ")
-    if os.path.isfile(csvLocation) == False:
-        print("Filen existerar inte, vänligen testa igen.")
-    elif os.path.isfile(csvLocation) == True:
-        print("Filen existerar.")
-        global correctCSVLocation
-        correctCSVLocation = csvLocation
-    else:
-        print("gg")
+    working = False
+    while working == False:
+        print('Skriv sökvägen till CSV filen.')
+        csvLocation = input("csv: ")
+        if os.path.isfile(csvLocation) == False:
+            print("Filen existerar inte, vänligen testa igen.")
+        elif os.path.isfile(csvLocation) == True:
+            print("Filen existerar.")
+            working = True
+            return csvLocation
+        else:
+            print("gg")
 
-def createADUser():
-    
+def passwordGen(length=8):
+    password = ''
+    password += random.choice(chars)
+    password += random.choice(chars1)
+    password += random.choice(chars2)
+    password += random.choice(chars3)
+    for c in range(length-4):
+        cat = random.randint(1,4)
+        if cat == 1:
+            password += random.choice(chars)
+        elif cat == 2:
+            password += random.choice(chars1)
+        elif cat == 3:
+            password += random.choice(chars2)
+        else:
+            password += random.choice(chars3)
+    return password
+
+def addUser(os = osys):
+    if osys == 'Linux':
+        cmd = "linux add user"
+    else:
+        cmd = 
 
 
 
@@ -38,6 +66,13 @@ while running:
             print("Välj ett av de tillgänliga alternativen.")
             meny = 0
     if meny == 1:
-        getFileLocation()
+        correctCSVLocation = getFileLocation()
+        with open (correctCSVLocation, newline='') as csvFile:
+            readFile = csv.DictReader(csvFile)
+            for row in readFile:
+                print(row)
+                print(f'Lösenord: {passwordGen()}')
+
         meny = 0
+
         
