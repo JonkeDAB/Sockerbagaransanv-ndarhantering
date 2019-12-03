@@ -20,24 +20,32 @@ import os, csv, random, string
 #     readFile = csv.DictReader(csvfile)
 #     for row in readFile:
 #         print(row['first_name'], row['id'])
-chars = "abcdefghijklmnopqrstuvwxyz"
-chars1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-chars2 = "0123456789"
-chars3 = "!#/()=#"
-password = ''
-password += random.choice(chars)
-password += random.choice(chars1)
-password += random.choice(chars2)
-password += random.choice(chars3)
-for c in range(8):
-    cat = random.randint(1,4)
-    if cat == 1:
-        password += random.choice(chars)
-    elif cat == 2:
-        password += random.choice(chars1)
-    elif cat == 3:
-        password += random.choice(chars2)
-    else:
-        password += random.choice(chars3)
+# chars = "abcdefghijklmnopqrstuvwxyz"
+# chars1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+# chars2 = "0123456789"
+# chars3 = "!#/()=#"
+# password = ''
+# password += random.choice(chars)
+# password += random.choice(chars1)
+# password += random.choice(chars2)
+# password += random.choice(chars3)
+# for c in range(8):
+#     cat = random.randint(1,4)
+#     if cat == 1:
+#         password += random.choice(chars)
+#     elif cat == 2:
+#         password += random.choice(chars1)
+#     elif cat == 3:
+#         password += random.choice(chars2)
+#     else:
+#         password += random.choice(chars3)
 
-print(password)
+# print(password)
+
+var1 = 'jonas'
+var2 = 'är'
+var3 = 'fin'
+def test():
+    spremo = f'testet{var1}{var2}{var3}'
+    return spremo
+print(test())

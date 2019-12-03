@@ -47,8 +47,10 @@ def addUser(os = osys):
     if osys == 'Linux':
         cmd = "linux add user"
     else:
-        cmd = 
-
+        cmd = f'New-ADUSer ' 
+    returnedValue = subprocess.call(cmd, shell=True)
+    if returnedValue >= 1:
+        print(f"Något gick fel.\n Returned Value: {returnedValue}")
 
 
 print(f'''Välkommen,
