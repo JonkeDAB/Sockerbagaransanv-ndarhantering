@@ -7,7 +7,7 @@ chars = "abcdefghijklmnopqrstuvwxyz"
 chars1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 chars2 = "0123456789"
 chars3 = "!#/()=#"
-
+row = ""
 
 # def generatePass(length=):
 
@@ -41,17 +41,18 @@ def passwordGen(length=8):
             password += random.choice(chars2)
         else:
             password += random.choice(chars3)
+    
     return password
 
-def addUser(os = osys):
-    if osys == 'Linux':
-        cmd = "linux add user"
-    else:
-        cmd = f'New-ADUSer ' 
-    returnedValue = subprocess.call(cmd, shell=True)
-    if returnedValue >= 1:
-        print(f"Något gick fel.\n Returned Value: {returnedValue}")
-
+# def addUser(os = osys):
+#     if osys == 'Linux':
+#         cmd = "linux add user"
+#     else:
+#         cmd = f'New-ADUSer -Name "{row['first_name']} {row['last_name']}" -GivenName "{row['first_name']}" -Surname "{row['last_name']}" -SamAccountName "{row['SamAccountName']}" -UserPrincipleName "{row['UserPrincipleName']}" -Path "{row['path']}" -PasswordNotRequired $True -ChangePasswordAtLogon $True'
+#         print(cmd)
+    # returnedValue = subprocess.call(cmd, shell=True)
+    # if returnedValue >= 1:
+    #     print(f"Något gick fel.\n Returned Value: {returnedValue}")
 
 print(f'''Välkommen,
 Du kör operativsystemet {osys}.''')
@@ -74,7 +75,9 @@ while running:
             for row in readFile:
                 print(row)
                 print(f'Lösenord: {passwordGen()}')
-
+                cmd = f'New-ADUSer -Name "{row['first_name']} {row['last_name']}" -GivenName "{row['first_name']}" -Surname "{row['last_name']}" -SamAccountName "{row['SamAccountName']}" -UserPrincipleName "{row['UserPrincipleName']}" -Path "{row['path']}" -PasswordNotRequired $True -ChangePasswordAtLogon $True'
+                print(cmd)
+                # addUser(Windows)
         meny = 0
 
         
