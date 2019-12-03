@@ -75,7 +75,7 @@ while running:
             for row in readFile:
                 print(row)
                 print(f'Lösenord: {passwordGen()}')
-                cmd = f'New-ADUSer -Name "{row['first_name']} {row['last_name']}" -GivenName "{row['first_name']}" -Surname "{row['last_name']}" -SamAccountName "{row['SamAccountName']}" -UserPrincipleName "{row['UserPrincipleName']}" -Path "{row['path']}" -PasswordNotRequired $True -ChangePasswordAtLogon $True'
+                cmd = f'New-ADUSer -Name "{row[first_name]} {row[last_name]}" -GivenName "{row[first_name]}" -Surname "{row[last_name]}" -SamAccountName "{row[SamAccountName]}" -UserPrincipleName "{row[UserPrincipleName]}" -Path "{row[path]}" -PasswordNotRequired $True -ChangePasswordAtLogon $True'
                 print(cmd)
                 # addUser(Windows)
         meny = 0
